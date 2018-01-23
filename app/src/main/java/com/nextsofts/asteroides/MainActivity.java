@@ -13,19 +13,63 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     public static AlmacenPuntuacines almacen;
-    /*en la linea 22  lo que se hace es acceder al metodo de la clase padre osea AppCompatActivity
-    *la insancia BUndle lo que hace es guardar el estado de nuestra app para que no hayga perdida de informacion al cerrar
-    * en la linea 24 se crea una referencia a la clase
-    * */
+
+
+
     @Override
+    /*se llama en la creacin de la activisdad, se utiliza para realizar todo tipo de inicializaciones,como la creacion de la
+    * interface de usuario o la inicializacion de estructuras de datos, puede recibir inicializacion de estado de la actividad
+    * en una instancia de clase bundle , por si se reanuda desde una actividad que ha sido destruida y vuelta a crear*/
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+         Toast.makeText(this,"oncreate",Toast.LENGTH_SHORT).show();
         almacen=new AlmacenPuntuacionesArray();
     }
+    @Override
+    /*nos indica que la actidad esta apunto de mostrarse al usuario*/
+    protected void onStart() {
+        super.onStart();
+        Toast.makeText(this,"onStart",Toast.LENGTH_SHORT).show();
+    }
+    @Override
+    /*se llama cuando la activida va a comenzar a interactuar con el usuario, es un bune lugar para lanzar las animaciones y
+    * la musica*/
+    protected void onResume() {
+        super.onResume();
+        Toast.makeText(this,"onResume",Toast.LENGTH_LONG).show();
+    }
+    @Override
+    /*indica que la actividad esta apunto de ser lanzada a segundo plano, esto normalmente por que se lanzo otra actividad, es
+    * el lugar adecuado para detener animacines, musica o almacenar los datos que estaban en la edicion*/
+    protected void onPause() {
+        super.onPause();
+        Toast.makeText(this,"onPause",Toast.LENGTH_LONG).show();
+    }
+    @Override
+    /*la actividad ya no sera vicible para el usuario*/
+    protected void onStop() {
+        super.onStop();
+        Toast.makeText(this,"onStop",Toast.LENGTH_LONG).show();
+    }
+    @Override
+    /*indica que la actividad volvera  a ser representada despues de haber pasado por onStop()*/
+    protected void onRestart() {
+        super.onRestart();
+        Toast.makeText(this,"onRestart",Toast.LENGTH_LONG).show();
+    }
+    @Override
+    /*se llama antes de que laactividad sea totalmente destruida, por ejemplo cuando el usuario pulsa el boton volver o
+     * cuando se llama al metodo finish()*/
+    protected void onDestroy() {
+        super.onDestroy();
+        Toast.makeText(this,"onDestroy",Toast.LENGTH_LONG).show();
+    }
+
+
+
     /*metodo listener que espera la accion de un objeto View para poderse ejecutar
-    * ¿que se necesita para ejecutar este medodo?res.-un objeto View*/
+            * ¿que se necesita para ejecutar este medodo?res.-un objeto View*/
     public void lanzarAcercaDe(View v){
         Intent i=new Intent(MainActivity.this,AcercaDe.class);
         startActivity(i);
