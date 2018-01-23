@@ -1,0 +1,32 @@
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Puntuaciones"
+            android:gravity="center"
+            android:layout_margin="10px"
+            android:textSize="10pt"/>
+    <!--se utiliza FrameLayout puesto que se mostrara en pantalla solo uno de los objetos View que aparece dentro
+    osea si en el vector no se encuentra ningun elemento pues daria error pero en este caso mostrara nomas el
+    objeto TextView con ello no habra ningun error-->
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1">
+        <ListView
+                android:id="@android:id/list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawSelectorOnTop="false" />
+        <TextView
+                android:id="@android:id/empty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="No hay puntuaciones" />
+    </FrameLayout>
+</LinearLayout>

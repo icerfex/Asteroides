@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.nextsofts.asteroides">
+
+    <application
+            android:allowBackup="false"
+            android:icon="@mipmap/asterisco"
+            android:label="@string/app_name"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+
+        <!-- mi actividad principal el cual se va a mostrar primero en mi aplicacion asteroides
+        el Launcher significa que esta actividad es la principal..
+        Si mis actividades no estan registradas aqui el sistema no reconocera mi actividad por ende no ejecutara-->
+        <activity
+                android:name=".MainActivity">
+                <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                </intent-filter>
+        </activity>
+
+        <!--
+        registro de mis actividades recientes
+        el cual va tener como atributos.
+        1.-label(titulo)
+        2.-theme(tema) estilo de la ventana tipo dialogo ,ojo hay muchos tipos que se puede usar
+        -->
+        <activity
+                android:name=".AcercaDe"
+                android:label="AcercaDe......"
+                android:theme="@android:style/Theme.Dialog">
+        </activity>
+        <activity
+                android:name=".Preferencias"
+                android:label="Preferencias">
+        </activity>
+        <activity
+                android:label="Puntuaciones"
+                android:name=".Puntuaciones">
+        </activity>
+
+
+    </application>
+
+</manifest>

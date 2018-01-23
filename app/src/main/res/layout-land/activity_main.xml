@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        tools:context="com.nextsofts.asteroides.MainActivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp"
+        android:gravity="center">
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:text="@string/tituloAplicacion"/>
+
+    <TableLayout
+            android:gravity="center"
+            android:stretchColumns="*"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TableRow>
+            <Button android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Arrancar"
+                    android:id="@+id/Button01"/>
+
+            <Button android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Button03"
+                    android:text="@string/Configuracion"/>
+        </TableRow>
+        <TableRow>
+            <Button android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Button04"
+                    android:onClick="lanzarAcercaDe"
+                    android:text="@string/Acercade"/>
+
+            <Button android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="salir"
+                    android:text="@string/Salir"/>
+
+        </TableRow>
+    </TableLayout>
+
+
+</LinearLayout>
