@@ -2,6 +2,8 @@ package com.nextsofts.asteroides;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
+import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,26 +16,31 @@ public class MainActivity extends AppCompatActivity {
 
     public static AlmacenPuntuacines almacen;
 
-
+     /*static por que el contenido de la variable no cambiara ej pi=0.213434(esto es statico nunca cambia)
+     * en el caso de final se pone para decir que solo va ocupar un espacio de memoria y no mas de uno malgastando pues*/
 
     @Override
-    /*se llama en la creacin de la activisdad, se utiliza para realizar todo tipo de inicializaciones,como la creacion de la
-    * interface de usuario o la inicializacion de estructuras de datos, puede recibir inicializacion de estado de la actividad
+    /*se llama en la creacion del IU, tbm se utiliza para realizar todo tipo de inicializaciones de estructuras de datos,
+     puede recibir inicializacion de estado de la actividad
     * en una instancia de clase bundle , por si se reanuda desde una actividad que ha sido destruida y vuelta a crear*/
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-         Toast.makeText(this,"oncreate",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"oncreate",Toast.LENGTH_SHORT).show();
         almacen=new AlmacenPuntuacionesArray();
+        MediaPlayer mp=MediaPlayer.create(this,R.raw.audio);
+        mp.start();
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
+        //mp.stop();
     }
     @Override
-    /*nos indica que la actidad esta apunto de mostrarse al usuario*/
+    /*nos indica que la actividad esta apunto de mostrarse al usuario*/
     protected void onStart() {
         super.onStart();
         Toast.makeText(this,"onStart",Toast.LENGTH_SHORT).show();
     }
     @Override
-    /*se llama cuando la activida va a comenzar a interactuar con el usuario, es un bune lugar para lanzar las animaciones y
+    /*se llama cuando la activida va a comenzar a interactuar con el usuario, es un buen lugar para lanzar las animaciones y
     * la musica*/
     protected void onResume() {
         super.onResume();
